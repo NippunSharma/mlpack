@@ -12,7 +12,6 @@
  */
 #include "load_csv.hpp"
 
-using namespace boost::spirit;
 
 namespace mlpack {
 namespace data {
@@ -22,6 +21,7 @@ LoadCSV::LoadCSV(const std::string& file) :
   filename(file),
   inFile(file)
 {
+  /*
   // Attempt to open stream.
   CheckOpen();
 
@@ -69,6 +69,7 @@ LoadCSV::LoadCSV(const std::string& file) :
     delimiterRule = qi::raw[(*qi::char_(" ") >> qi::char_("\t") >>
         *qi::char_(" "))];
   }
+  */
 }
 
 void LoadCSV::CheckOpen()
