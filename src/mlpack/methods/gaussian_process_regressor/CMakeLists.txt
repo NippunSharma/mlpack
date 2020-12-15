@@ -2,7 +2,7 @@
 # Anything not in this list will not be compiled into the output library
 set(SOURCES
   gaussian_process_regression.hpp,
-  gaussian_process_regression.cpp
+  gaussian_process_regression_impl.hpp
 )
 
 # add directory name to sources
