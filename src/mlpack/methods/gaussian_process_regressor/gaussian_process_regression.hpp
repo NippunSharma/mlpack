@@ -110,6 +110,16 @@ class GPRegressor
   double RMSE(const arma::mat& data,
               const arma::rowvec& responses) const;
  private:
+  //! KernelType used for covariance matrix.
+  KernelType kernel;
+
+  //! Small value to add to diagnol of covariance matrix to
+  //! represent noise or to add numerical stability.
+  size_t alpha;
+
+  //! Whether to normalize the target values or not.
+  bool normalize_y;
+
   //! Center data if true.
   bool centerData;
 

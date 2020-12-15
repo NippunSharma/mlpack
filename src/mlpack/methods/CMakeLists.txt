@@ -50,7 +50,6 @@ set(DIRS
   sparse_autoencoder
   sparse_coding
   svdplusplus
-  gaussian_process_regression
 )
 
 foreach(dir ${DIRS})
