@@ -251,7 +251,7 @@ class IO
    *
    * @return The singleton instance for use in the static methods.
    */
-  static IO& GetSingleton();
+  static IO& GetSingleton(std::string value = "DEF");
 
   //! Return a modifiable list of parameters that IO knows about.
   static std::map<std::string, util::ParamData>& Parameters();
@@ -320,7 +320,8 @@ class IO
  public:
   //! True, if IO was used to parse command line options.
   bool didParse;
-
+  std::string value_;
+  static IO* singleton_;
   //! Holds the name of the program for --version.  This is the true program
   //! name (argv[0]) not what is given in BindingDetails.
   std::string programName;
@@ -337,7 +338,7 @@ class IO
   /**
    * Make the constructor private, to preclude unauthorized instances.
    */
-  IO();
+  IO(std::string value = "DEF");
 
   //! Private copy constructor; we don't want copies floating around.
   IO(const IO& other);

@@ -19,7 +19,7 @@ using namespace mlpack::util;
 
 /* Constructors, Destructors, Copy */
 /* Make the constructor private, to preclude unauthorized instances */
-IO::IO() : didParse(false)
+IO::IO(std::string value /*"DEF"*/) : didParse(false), value_(value)
 {
   return;
 }
@@ -144,11 +144,14 @@ void IO::MakeInPlaceCopy(const std::string& outputParamName,
 }
 
 // Returns the sole instance of this class.
-IO& IO::GetSingleton()
+IO& IO::GetSingleton(std::string value /*"DEF"*/)
 {
-  static IO singleton;
-  return singleton;
+  if (singleton_ == NULL)
+    singleton_ = new IO(value);
+  return *singleton_;
 }
+
+IO* IO::singleton_= nullptr;
 
 // Get the parameters that the IO object knows about.
 std::map<std::string, ParamData>& IO::Parameters()
