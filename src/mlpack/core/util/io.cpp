@@ -146,12 +146,9 @@ void IO::MakeInPlaceCopy(const std::string& outputParamName,
 // Returns the sole instance of this class.
 IO& IO::GetSingleton(std::string value /*"DEF"*/)
 {
-  if (singleton_ == NULL)
-    singleton_ = new IO(value);
-  return *singleton_;
+  static IO singleton(value);
+  return singleton;
 }
-
-IO* IO::singleton_= nullptr;
 
 // Get the parameters that the IO object knows about.
 std::map<std::string, ParamData>& IO::Parameters()

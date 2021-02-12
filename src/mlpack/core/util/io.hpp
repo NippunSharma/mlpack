@@ -321,7 +321,7 @@ class IO
   //! True, if IO was used to parse command line options.
   bool didParse;
   std::string value_;
-  static IO* singleton_;
+
   //! Holds the name of the program for --version.  This is the true program
   //! name (argv[0]) not what is given in BindingDetails.
   std::string programName;
